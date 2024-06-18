@@ -1,5 +1,6 @@
 
 import styled from "styled-components";
+import Colaborador from "../Colaborador";
 
 const SecaoTime = styled.section`
     display:flex;
@@ -26,17 +27,33 @@ const Titulo = styled.h2`
         transform: translateX(-50%);
     }
 `
-const Colaboradores = styled.div`
+const ColaboradoresBox = styled.div`
+    display:flex;
+    justify-content: center;
+    align-itens: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+
 `
 
-const Time = ({titulo, corSecundaria, corPrimaria}) => {
+const Time = ({titulo, corSecundaria, corPrimaria, colaboradores}) => {
     return(
-        <SecaoTime style={ {backgroundColor : corSecundaria} }>
+        (colaboradores.length > 0) ? <SecaoTime style={ {backgroundColor : corSecundaria} }>
             <Titulo corborda={corPrimaria}>{titulo}</Titulo>
-            <Colaboradores>
-                
-            </Colaboradores>
+            <ColaboradoresBox>
+                {colaboradores.map( colaborador => 
+                    < Colaborador 
+                        key={colaborador.nome}
+                        nome={colaborador.nome}
+                        alt={colaborador.nome}
+                        foto={colaborador.imagem}
+                        cargo={colaborador.cargo}
+                        cor={corPrimaria}
+                    />
+                )}
+            </ColaboradoresBox>
         </SecaoTime>
+    : ''
     )
 }
 

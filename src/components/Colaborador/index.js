@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Card = styled.div`
-    max-width: 180px;
+    width: 180px;
     text-align: center;
     `
     
@@ -24,6 +24,17 @@ const ContainerTextos = styled.div`
  background-color: #FFF;
  padding: 3rem 1rem;
  border-radius: 0 0 20px 20px;
+
+ h4, h5{
+    font-size: 1.5rem;
+    font-weight: 300;
+    font-family: "Arial", sans-serif;
+    }
+
+h5{
+    font-size: 1rem;
+    margin-top: 1rem;
+}
 `
 
 const Colaborador = ({cor, foto, nome, cargo, alt})=> {
