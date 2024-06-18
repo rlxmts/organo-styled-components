@@ -19,14 +19,6 @@ const Form = styled.form`
 `
 
 const Formulario = (props)=> {
-
-    const times = [
-        'Front-end',
-        'Back-end',
-        'Data-Science',
-        'DevOps'
-    ]
-
     
     const [nome, setNome] = useState('');
     const [cargo, setCargo] = useState('');
@@ -69,7 +61,7 @@ const Formulario = (props)=> {
             <ListaSuspensa 
                 obrigatorio={true} 
                 label="Time" 
-                times={times} 
+                times={props.times} 
                 valor={time}
                 aoAlterado={valor => setTime(valor)}
             />
