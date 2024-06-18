@@ -19,11 +19,22 @@ const ContainerCampo = styled.div`
     }
 `
 
-const CampoDeTexto = ({label, placeholder, obrigatorio})=> {
+const CampoDeTexto = ({label, placeholder, obrigatorio, valor, aoAlterado})=> {
+
+    const aoDigitado = (e)=> {
+        aoAlterado(e.target.value);
+    }
+    
     return(
         <ContainerCampo>
             <label>{label}</label>
-            <input type="text" placeholder={placeholder} required={obrigatorio}/>
+            <input 
+                value={valor}
+                onChange={aoDigitado}
+                type="text" 
+                placeholder={placeholder} 
+                required={obrigatorio} 
+            />
         </ContainerCampo>
     )
 }

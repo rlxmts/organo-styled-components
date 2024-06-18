@@ -2,6 +2,7 @@ import styled from "styled-components";
 import CampoDeTexto from "../CampoDeTexto";
 import { Botao } from "../Botao";
 import ListaSuspensa from "../ListaSuspensa";
+import { useState } from "react";
 
 const Form = styled.form`
     background-color: #F2F2F2;
@@ -19,16 +20,54 @@ const Form = styled.form`
 
 const Formulario = ()=> {
 
+    const times = [
+        'Front-end',
+        'Back-end',
+        'Data-Science',
+        'DevOps'
+    ]
+
+    
+    const [nome, setNome] = useState('');
+    const [cargo, setCargo] = useState('');
+    const [imagem, setImagem] = useState('');
+    const [time, setTime] = useState('');
+    
     function cadastrarColaborador(e){
         e.preventDefault();
+        console.log(nome, cargo, imagem, time)
     }
-
+    
     return(
         <Form onSubmit={cadastrarColaborador}>
-            <CampoDeTexto label="Nome" obrigatorio={true} placeholder="Digite seu nome" />
-            <CampoDeTexto label="Cargo" obrigatorio={true} placeholder="Digite seu cargo" />
-            <CampoDeTexto label="Imagem" obrigatorio={true} placeholder="https://..." />
-            <ListaSuspensa />
+            <CampoDeTexto 
+                label="Nome" 
+                obrigatorio={true} 
+                placeholder="Digite seu nome" 
+                valor={nome}
+                aoAlterado={valor => setNome(valor)}
+            />
+            <CampoDeTexto 
+                label="Cargo" 
+                obrigatorio={true} 
+                placeholder="Digite seu cargo" 
+                valor={cargo}
+                aoAlterado={valor => setCargo(valor)}
+            />
+            <CampoDeTexto 
+                label="Imagem" 
+                obrigatorio={true} 
+                placeholder="https://..."
+                valor={imagem}
+                aoAlterado={valor => setImagem(valor)} 
+            />
+            <ListaSuspensa 
+                obrigatorio={true} 
+                label="Time" 
+                times={times} 
+                valor={time}
+                aoAlterado={valor => setTime(valor)}
+            />
             <Botao>Criar Card</Botao>
         </Form>
     )

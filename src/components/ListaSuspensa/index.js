@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const ListaSuspensa = ()=> {
+const ListaSuspensa = ({label, times, obrigatorio, valor,aoAlterado})=> {
 
     const Label = styled.label`
         display:block;
@@ -16,20 +16,17 @@ const ListaSuspensa = ()=> {
         border-radius: 5px;
         border: none;
     `
-
-    const times = [
-        'Front-end',
-        'Back-end',
-        'Data-Science',
-        'DevOps'
-    ]
-
+    
     return(
         <div>
-            <Label>Time</Label>
-            <Select>
+            <Label>{label}</Label>
+            <Select 
+                onChange={(e) => aoAlterado(e.target.value)} 
+                required={obrigatorio} 
+                value={valor}
+            >
                 <option></option>
-                {times.map( time => <option>{time}</option>)}
+                {times.map( time => <option key={time}>{time}</option>)}
             </Select>
         </div>
     )
