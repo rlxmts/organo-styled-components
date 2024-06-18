@@ -11,6 +11,10 @@ const EstiloGlobal = createGlobalStyle`
   list-style: none;
   box-sizing: border-box;
 }
+
+body{
+}
+
 `
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

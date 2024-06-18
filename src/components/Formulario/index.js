@@ -6,7 +6,7 @@ import { useState } from "react";
 
 const Form = styled.form`
     background-color: #F2F2F2;
-    width: 100%;
+    width: 90%;
     max-width: 700px;
     margin: 3rem auto;
     border: 1px solid #DCDCDC;
@@ -18,7 +18,7 @@ const Form = styled.form`
     gap: 1.2rem;
 `
 
-const Formulario = ()=> {
+const Formulario = (props)=> {
 
     const times = [
         'Front-end',
@@ -35,7 +35,12 @@ const Formulario = ()=> {
     
     function cadastrarColaborador(e){
         e.preventDefault();
-        console.log(nome, cargo, imagem, time)
+        props.aoCadastrar({
+            nome, 
+            cargo, 
+            imagem, 
+            time
+        })
     }
     
     return(
